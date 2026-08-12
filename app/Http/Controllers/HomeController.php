@@ -10,8 +10,9 @@ class HomeController extends Controller
     {
         return view('home.index');
     }
+    
     public function about(): View
-{
+    {
     $data1 = "About us - Online Store";
     $data2 = "About us";
     $description = "This is an about page ...";
@@ -21,7 +22,19 @@ class HomeController extends Controller
         ->with("subtitle", $data2)
         ->with("description", $description)
         ->with("author", $author);
-}
+    }
+  public function contact(): View
+    {
+    $viewData = [];
+    $viewData["title"] = "Contact - Online Store";
+    $viewData["subtitle"] = "Contact us";
+    $viewData["name"] = "David Rios";
+    $viewData["address"] = "Medellín, Colombia";
+    $viewData["phone"] = "300 123 4567";
+
+    return view('home.contact')->with("viewData", $viewData);
+    }
+
     
 }
 
